@@ -1,0 +1,10 @@
+{
+"name":"com.tuananh.tools",
+"version": "0.0.1-preview.1",
+"displayName": "TuanAnh's UI Animation",
+"description": "My basic UI Animation Package",
+"author": {
+"name": "Tuan Anh",
+"url": "https://github.com/GPham62/UI-Animator-Player"
+}
+}
