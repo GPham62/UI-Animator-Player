@@ -2,6 +2,7 @@
 
 A Unity tool for animating UI elements with a simple workflow.  
 This package provides a custom editor and utilities for managing UI tweens.
+I write this pack as a way to learn how to use factory and strategy pattern and how to upload pack in github.
 
 ---
 
