@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AnimationUISystem
+namespace AnimationUISystem.AnimationSettings
 {
     [Serializable]
     public class ImageAnimationSettings : IAnimationSettings

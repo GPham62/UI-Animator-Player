@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using NUnit.Framework;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace AnimationUISystem
+namespace AnimationUISystem.AnimationSettings
 {
     [Serializable]
     public class TextAnimationSettings : IAnimationSettings

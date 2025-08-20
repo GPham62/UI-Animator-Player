@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AnimationUISystem.AnimationSettings;
 using UnityEngine;
 
 namespace AnimationUISystem

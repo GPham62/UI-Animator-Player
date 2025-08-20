@@ -11,28 +11,20 @@ namespace AnimationUISystem
     [Serializable]
     public class AnimationUI
     {
-        [SerializeField, HideLabel, ShowIf("@!hasTarget"), DisplayAsString(false, 14, TextAlignment.Center, true), ReadOnly]
-        private string defaultString = "Please Assign Target Component(Image, RectTransform, CanvasGroup)";
-
-        [ShowInInspector, HideLabel, HideIf("@!hasTarget"), DisplayAsString(false, 20, TextAlignment.Center, true), PropertyOrder(-100)]
-        private string DisplayName => target ? target.name : "none";
-        
+        [Tooltip("Please Assign Target Component (TMP_Text, Image, RectTransform, CanvasGroup)")]
         [SerializeField, OnValueChanged(nameof(OnTargetChanged)), PropertySpace(16)]
         private Component target;
-
-        [HideInInspector] public bool hasTarget = false;
-        [HideInInspector] public bool hasImage;
-        [HideInInspector] public bool hasRectTransform;
-        [HideInInspector] public bool hasCanvasGroup;
-        [HideInInspector] public bool hasText;
-        
         [ShowIfGroup("TweenSettings", Condition = nameof(hasTarget))] 
         [BoxGroup("TweenSettings/Settings")]
         [SerializeField, ValueDropdown(nameof(GetAvailableTweenOptions)), OnValueChanged(nameof(OnTweenOptionChanged))]
         private TweenOption tweenOption;
         [BoxGroup("TweenSettings/Settings"), SerializeReference] private IAnimationSettings animationSettings;
 
-        private bool _isInitialized;
+        [HideInInspector] public bool hasTarget = false;
+        [HideInInspector] public bool hasImage;
+        [HideInInspector] public bool hasRectTransform;
+        [HideInInspector] public bool hasCanvasGroup;
+        [HideInInspector] public bool hasText;
         private IEnumerable<TweenOption> GetAvailableTweenOptions()
         {
             if (!hasTarget) yield break;

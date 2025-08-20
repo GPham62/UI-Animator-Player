@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AnimationUISystem
 {
     public class AnimationUIPlayer : MonoBehaviour
     {
-        [Searchable] [SerializeField] private AnimationUI[] animationUI;
+        [SerializeField] private AnimationUI[] animationUI;
         [SerializeField] private bool isPlayOnEnable;
 
         private List<Tween> _tweens = new();
@@ -30,7 +29,7 @@ namespace AnimationUISystem
             {
                 if (anim.NullCheck())
                 {
-                    Debug.LogError("Animation UI null check failed");
+                    Debug.LogError("AnimationUI.NullCheck failed");
                     continue;
                 }
 

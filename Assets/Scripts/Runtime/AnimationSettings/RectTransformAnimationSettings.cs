@@ -4,7 +4,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace AnimationUISystem
+namespace AnimationUISystem.AnimationSettings
 {
     [Serializable]
     public class RectTransformAnimationSettings : IAnimationSettings
@@ -22,6 +22,7 @@ namespace AnimationUISystem
         private AnimationValue<Vector3> rotate = new();
 
         private RectTransform _targetRectTransform;
+
         public void AssignTarget(Component target)
         {
             _targetRectTransform = target as RectTransform;
@@ -44,7 +45,8 @@ namespace AnimationUISystem
                 return null;
             if (rectOption.HasFlag(RectOption.AnchoredPosition))
             {
-                var tweenAnchoredPosition = _targetRectTransform.DOAnchorPos(anchoredPosition.end, anchoredPosition.duration)
+                var tweenAnchoredPosition = _targetRectTransform
+                    .DOAnchorPos(anchoredPosition.end, anchoredPosition.duration)
                     .SetDelay(anchoredPosition.delay);
                 if (anchoredPosition.isCustomEase)
                     tweenAnchoredPosition.SetEase(anchoredPosition.customEase);
@@ -57,7 +59,8 @@ namespace AnimationUISystem
 
             if (rectOption.HasFlag(RectOption.LocalScale))
             {
-                var tweenLocalScale = _targetRectTransform.DOScale(localScale.end, localScale.duration).SetDelay(localScale.delay);
+                var tweenLocalScale = _targetRectTransform.DOScale(localScale.end, localScale.duration)
+                    .SetDelay(localScale.delay);
                 if (localScale.isCustomEase)
                     tweenLocalScale.SetEase(localScale.customEase);
                 else

@@ -4,7 +4,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace AnimationUISystem
+namespace AnimationUISystem.AnimationSettings
 {
     [Serializable]
     public class CanvasGroupAnimationSettings : IAnimationSettings
