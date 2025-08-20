@@ -3,6 +3,9 @@
   "version": "0.0.1-preview.1",
   "displayName": "TA's UI Animation",
   "description": "Basic UI Animation Package",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
   "author": {
     "name": "TA",
     "url": "https://github.com/GPham62/UI-Animator-Player"
