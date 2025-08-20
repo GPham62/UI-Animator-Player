@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using LBG;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -31,7 +30,7 @@ namespace AnimationUISystem
         [BoxGroup("TweenSettings/Settings")]
         [SerializeField, ValueDropdown(nameof(GetAvailableTweenOptions)), OnValueChanged(nameof(OnTweenOptionChanged))]
         private TweenOption tweenOption;
-        [BoxGroup("TweenSettings/Settings"), SerializeReference, SubclassSelector] private IAnimationSettings animationSettings;
+        [BoxGroup("TweenSettings/Settings"), SerializeReference] private IAnimationSettings animationSettings;
 
         private bool _isInitialized;
         private IEnumerable<TweenOption> GetAvailableTweenOptions()
