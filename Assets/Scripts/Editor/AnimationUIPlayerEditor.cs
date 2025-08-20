@@ -30,10 +30,17 @@ namespace AnimationUISystem.Editor
             playTweenStyle.normal.background = greenTexture;
             playTweenStyle.hover.background = greenTexture;
             playTweenStyle.active.background = greenTexture;
+            GUIStyle resetTweenStyle = new GUIStyle(playTweenStyle);
+            Texture2D grayTexture = new Texture2D(1, 1);
+            grayTexture.SetPixel(0, 0, Color.gray);
+            grayTexture.Apply();
+            resetTweenStyle.normal.background = grayTexture;
+            resetTweenStyle.hover.background = grayTexture;
+            resetTweenStyle.active.background = grayTexture;
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             GUI.enabled = !_isPlaying;
-            if (GUILayout.Button("Reset Tween", playTweenStyle, GUILayout.Width(150), GUILayout.Height(40)))
+            if (GUILayout.Button("Reset Tween", resetTweenStyle, GUILayout.Width(150), GUILayout.Height(40)))
             {
                 tweeningComp.SetTweenStart();
             }
@@ -54,7 +61,7 @@ namespace AnimationUISystem.Editor
                 }
 
                 _isPlaying = true;
-                StopPreviewAfterDelay(prevDuration);
+                StopPreviewAfterDelay(prevDuration + 0.25f);
             }
             GUI.enabled = true;
             GUILayout.FlexibleSpace();
