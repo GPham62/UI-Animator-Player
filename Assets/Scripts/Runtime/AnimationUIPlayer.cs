@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace AnimationUISystem
                 ClearTweens();
         }
 
-        public void Play()
+        public void SetTweenStart(Action<AnimationUI> callback = null)
         {
             foreach (var anim in animationUI)
             {
@@ -32,11 +33,18 @@ namespace AnimationUISystem
                     Debug.LogError("AnimationUI.NullCheck failed");
                     continue;
                 }
-
                 anim.AssignTarget();
                 anim.SetTweenStart();
-                _tweens.AddRange(anim.CreateTween());
+                callback?.Invoke(anim);
             }
+        }
+
+        public void Play()
+        {
+            SetTweenStart((anim) =>
+            {
+                _tweens.AddRange(anim.CreateTween());
+            });
         }
 
         public void ClearTweens()

@@ -33,6 +33,11 @@ namespace AnimationUISystem.Editor
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             GUI.enabled = !_isPlaying;
+            if (GUILayout.Button("Reset Tween", playTweenStyle, GUILayout.Width(150), GUILayout.Height(40)))
+            {
+                tweeningComp.SetTweenStart();
+            }
+            
             if (GUILayout.Button("Play Tween", playTweenStyle, GUILayout.Width(150), GUILayout.Height(40)))
             {
                 tweeningComp.ClearTweens();
